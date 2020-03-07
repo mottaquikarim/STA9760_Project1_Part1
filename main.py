@@ -78,12 +78,9 @@ if __name__ == '__main__':
         i += 1
         write_to_file = 'output' in opts
         if write_to_file:
-            lines = []
-            for item in resp:
-                lines.append(str(item))
-
             with open(opts['output'], 'a+') as fh:
-                fh.write('\n'.join(lines))
+                for item in resp:
+                    fh.write(f"{str(item)}\n")
         else:
             for item in resp:
                 print(str(item))
